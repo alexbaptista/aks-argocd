@@ -30,11 +30,9 @@ variable "aks-settings" {
   type = object({
     dns_prefix                        = string
     role_based_access_control_enabled = bool
-    features                          = map(string)
   })
   default = {
     dns_prefix                        = "k8s"
-    features                          = {}
     role_based_access_control_enabled = true
   }
   description = "Settings for AKS Cluster"

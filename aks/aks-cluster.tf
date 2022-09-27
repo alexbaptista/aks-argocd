@@ -3,7 +3,6 @@ resource "azurerm_kubernetes_cluster" "default" {
   location                          = azurerm_resource_group.default.location
   resource_group_name               = azurerm_resource_group.default.name
   dns_prefix                        = var.aks-settings.dns_prefix
-  features                          = var.aks-settings.features
   role_based_access_control_enabled = var.aks-settings.role_based_access_control_enabled
   default_node_pool                 = var.aks-default-node
   tags                              = var.tags
