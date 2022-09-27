@@ -32,9 +32,6 @@ resources:
 trigger:
   branches:
     include:
-      # - refs/heads/dev
-      # - refs/heads/qa
-      # - refs/heads/uat
       - refs/heads/main
   paths:
     exclude:
@@ -43,9 +40,6 @@ trigger:
 pr:
   branches:
     include:
-      # - refs/heads/dev
-      # - refs/heads/qa
-      # - refs/heads/uat
       - refs/heads/main
   paths:
     exclude:
@@ -61,14 +55,5 @@ stages:
         DEV:
           environmentDeploy: dev
           gitBranch: refs/heads/main
-        # QA:
-        #   environmentDeploy: qa
-        #   gitBranch: refs/heads/qa
-        # UAT:
-        #   environmentDeploy: uat
-        #   gitBranch: refs/heads/uat
-        # PRD:
-        #   environmentDeploy: prd
-        #   gitBranch: refs/heads/main
         PR:
           githubToken: $(githubToken)
