@@ -11,32 +11,32 @@ variable "aks-name" {
 }
 
 variable "aks-default-node" {
-  type = list(object({
+  type = object({
     name            = string
     node_count      = number
     os_disk_size_gb = number
     vm_size         = string
-  }))
-  default = [{
+  })
+  default = {
     name            = "default"
     node_count      = 1
     os_disk_size_gb = 30
     vm_size         = "Standard_D2_v2"
-  }]
+  }
   description = "Settings for AKS Node Cluster"
 }
 
 variable "aks-settings" {
-  type = list(object({
+  type = object({
     dns_prefix                        = string
     role_based_access_control_enabled = bool
     features                          = map(string)
-  }))
-  default = [{
+  })
+  default = {
     dns_prefix                        = "k8s"
     features                          = {}
     role_based_access_control_enabled = true
-  }]
+  }
   description = "Settings for AKS Cluster"
 }
 
