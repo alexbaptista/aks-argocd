@@ -54,7 +54,7 @@ pr:
 stages:
   - template: pipeline/terraform.yaml@Iac-template
     parameters:
-      terraformPath: $(System.DefaultWorkingDirectory)/aks
+      terraformPath: /aks
       terraformVersion: 1.2.9
       resourceContainer: terraform
       envConfig:
