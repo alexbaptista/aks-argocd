@@ -11,14 +11,12 @@ resources:
   repositories:
     - repository: Iac-template
       type: github
-      endpoint: github.com_alexbaptista # CHANGE HERE AFTER FORK REPO
-      name: alexbaptista/azuredevops-iac-template-pipeline # CHANGE HERE AFTER FORK REPO
-      # ref: refs/tags/v.1.3 # CHANGE HERE AFTER FORK REPO
-      ref: refs/heads/main
+      endpoint: github.com_alexbaptista
+      name: alexbaptista/azuredevops-iac-template-pipeline
+      ref: refs/tags/v.1.3
   containers:
     - container: terraform
-      # image: docker.io/alxbap/azuredevops-iac-template-pipeline:v.1.3
-      image: docker.io/alxbap/azuredevops-iac-template-pipeline:v.1.2
+      image: docker.io/alxbap/azuredevops-iac-template-pipeline:v.1.3
       env:
         TF_STATE_BLOB_ACCOUNT_NAME: $(terraformStateBlobAccountName)
         TF_STATE_BLOB_CONTAINER_NAME: $(terraformStateBlobContainerName)
@@ -56,7 +54,7 @@ pr:
 stages:
   - template: pipeline/terraform.yaml@Iac-template
     parameters:
-      terraformPath: $(System.DefaultWorkingDirectory)
+      terraformPath: $(System.DefaultWorkingDirectory)/aks
       terraformVersion: 1.2.9
       resourceContainer: terraform
       envConfig:
