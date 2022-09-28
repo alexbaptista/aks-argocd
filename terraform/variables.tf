@@ -86,6 +86,14 @@ variable "aks_settings" {
   description = "Settings for AKS Cluster"
 }
 
+variable "argocd_settings" {
+  type = map(string)
+  default = {
+    "override_namespace" = "argocd"
+    "version"            = "v2.4.12"
+  }
+}
+
 variable "tags" {
   type = map(string)
   default = {
