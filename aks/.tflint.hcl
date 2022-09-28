@@ -24,7 +24,7 @@ rule "terraform_workspace_remote" { enabled = true }
 #### Azure rules Terraform ####
 plugin "azurerm" {
   enabled = true
-  version = "0.18.0"
+  version = "0.17.1"
   source  = "github.com/terraform-linters/tflint-ruleset-azurerm"
 }
 
