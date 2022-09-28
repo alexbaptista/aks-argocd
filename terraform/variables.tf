@@ -89,8 +89,9 @@ variable "aks_settings" {
 variable "argocd_settings" {
   type = map(string)
   default = {
-    "override_namespace" = "argocd"
-    "version"            = "v2.4.12"
+    "namespace"    = "argocd"
+    "secret_admin" = "argocd-initial-admin-secret"
+    "version"      = "v2.4.12"
   }
   description = "ArgoCD Settings"
 }
