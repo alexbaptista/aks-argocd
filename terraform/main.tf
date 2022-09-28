@@ -19,10 +19,10 @@ provider "azurerm" {
 }
 
 provider "kubectl" {
-  host                   = azurerm_kubernetes_cluster.default.kube_config.0.host
-  username               = azurerm_kubernetes_cluster.default.kube_config.0.username
-  password               = azurerm_kubernetes_cluster.default.kube_config.0.password
-  client_certificate     = base64decode(azurerm_kubernetes_cluster.default.kube_config.0.client_certificate)
-  client_key             = base64decode(azurerm_kubernetes_cluster.default.kube_config.0.client_key)
-  cluster_ca_certificate = base64decode(azurerm_kubernetes_cluster.default.kube_config.0.cluster_ca_certificate)
+  host                   = element(azurerm_kubernetes_cluster.default.kube_config.*.host, 0)
+  username               = element(azurerm_kubernetes_cluster.default.kube_config.*.username, 0)
+  password               = element(azurerm_kubernetes_cluster.default.kube_config.*.password, 0)
+  client_certificate     = base64decode(element(azurerm_kubernetes_cluster.default.kube_config.*.client_certificate, 0))
+  client_key             = base64decode(element(azurerm_kubernetes_cluster.default.kube_config.*.client_key, 0))
+  cluster_ca_certificate = base64decode(element(azurerm_kubernetes_cluster.default.kube_config.*.cluster_ca_certificate, 0))
 }
