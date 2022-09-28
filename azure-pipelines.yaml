@@ -5,7 +5,7 @@ pool:
   vmImage: hosted-azure
 
 variables:
-  - group: azuredevops-iac-template-pipeline
+  - group: aks-argocd
 
 resources:
   repositories:
