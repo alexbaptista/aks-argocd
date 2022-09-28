@@ -25,12 +25,7 @@ resource "azurerm_kubernetes_cluster" "default" {
   }
 
   oms_agent {
-    log_analytics_workspace_id = var.aks_settings.oms_agent.log_analytics_workspace_id
+    log_analytics_workspace_id = azurerm_log_analytics_workspace.default.id
   }
 
-}
-
-resource "azurerm_resource_group" "default" {
-  name     = var.resourcegroup_name
-  location = var.location
 }

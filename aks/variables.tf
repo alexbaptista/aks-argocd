@@ -10,6 +10,24 @@ variable "resourcegroup_name" {
   description = "Resource Group name"
 }
 
+variable "log_analytics_name" {
+  type        = string
+  default     = "log-aks"
+  description = "Log Analytics name"
+}
+
+variable "log_analytics_settings" {
+  type = object({
+    retention_in_days = number
+    sku               = string
+  })
+  default = {
+    retention_in_days = 30
+    sku               = "PerGB2018"
+  }
+  description = "Log Analytics settings"
+}
+
 variable "aks_name" {
   type        = string
   default     = "infra-aks"
