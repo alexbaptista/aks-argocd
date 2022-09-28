@@ -13,10 +13,10 @@ resources:
       type: github
       endpoint: github.com_alexbaptista
       name: alexbaptista/azuredevops-iac-template-pipeline
-      ref: refs/tags/v.1.4
+      ref: refs/tags/v.1.5
   containers:
     - container: terraform
-      image: docker.io/alxbap/azuredevops-iac-template-pipeline:v.1.4
+      image: docker.io/alxbap/azuredevops-iac-template-pipeline:v.1.5
       env:
         TF_STATE_BLOB_ACCOUNT_NAME: $(terraformStateBlobAccountName)
         TF_STATE_BLOB_CONTAINER_NAME: $(terraformStateBlobContainerName)
