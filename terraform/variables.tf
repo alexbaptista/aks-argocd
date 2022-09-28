@@ -92,6 +92,7 @@ variable "argocd_settings" {
     "override_namespace" = "argocd"
     "version"            = "v2.4.12"
   }
+  description = "ArgoCD Settings"
 }
 
 variable "tags" {
