@@ -96,6 +96,71 @@ variable "argocd_settings" {
   description = "ArgoCD Settings"
 }
 
+variable "keyvault_name" {
+  type        = string
+  default     = "keyvault-aks"
+  description = "Keyvault name"
+}
+
+variable "keyvault_settings" {
+  type = object({
+    access_policy = object({
+      key_permissions    = list(string)
+      secret_permissions = list(string)
+    })
+    enabled_for_disk_encryption = bool
+    purge_protection_enabled    = bool
+    network_acls = object({
+      bypass         = string
+      default_action = string
+    })
+    sku_name                   = string
+    soft_delete_retention_days = number
+  })
+  default = {
+    access_policy = {
+      key_permissions = [
+        "Create",
+        "Get",
+      ]
+      secret_permissions = [
+        "Set",
+        "Get",
+        "Delete",
+        "Purge",
+        "Recover"
+      ]
+    }
+    enabled_for_disk_encryption = true
+    purge_protection_enabled    = true
+    network_acls = {
+      bypass         = "AzureServices"
+      default_action = "Deny"
+    }
+    sku_name                   = "standard"
+    soft_delete_retention_days = 7
+  }
+  description = "Keyvault settings"
+}
+
+variable "keyvault_argocd_name" {
+  type        = string
+  default     = "argocd-admin"
+  description = "Keyvault name for ArgoCD"
+}
+
+variable "keyvault_argocd_settings" {
+  type = object({
+    content_type    = string
+    expiration_date = string
+  })
+  default = {
+    content_type    = "password"
+    expiration_date = "2024-12-31T23:59:59Z"
+  }
+  description = "Keyvault for ArgoCD"
+}
+
 variable "tags" {
   type = map(string)
   default = {
