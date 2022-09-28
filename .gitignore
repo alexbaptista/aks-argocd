@@ -1,5 +1,6 @@
 # Local .terraform directories
 **/.terraform/*
+**/.tflint.d/*
 
 # .tfstate files
 *.tfstate

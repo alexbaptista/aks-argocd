@@ -4,13 +4,19 @@ variable "location" {
   description = "Azure region for resources"
 }
 
-variable "aks-name" {
+variable "resourcegroup_name" {
+  type        = string
+  default     = "resourcegroup-aks"
+  description = "Resource Group name"
+}
+
+variable "aks_name" {
   type        = string
   default     = "infra-aks"
   description = "AKS Cluster name"
 }
 
-variable "aks-default-node" {
+variable "aks_default_node" {
   type = object({
     name            = string
     node_count      = number
@@ -26,22 +32,40 @@ variable "aks-default-node" {
   description = "Settings for AKS Node Cluster"
 }
 
-variable "aks-settings" {
+variable "aks_settings" {
   type = object({
-    dns_prefix                        = string
+    api_server_authorized_ip_ranges = list(string)
+    azure_policy_enabled            = bool
+    dns_prefix                      = string
+    identity = object({
+      type = string
+    })
+    network_profile = object({
+      network_policy = string
+      network_plugin = string
+    })
+    oms_agent = object({
+      log_analytics_workspace_id = string
+    })
     role_based_access_control_enabled = bool
   })
   default = {
-    dns_prefix                        = "k8s"
+    api_server_authorized_ip_ranges = ["177.33.139.44/32"]
+    azure_policy_enabled            = true
+    dns_prefix                      = "k8s"
+    identity = {
+      type = "SystemAssigned"
+    }
+    network_profile = {
+      network_plugin = "kubenet"
+      network_policy = "calico"
+    }
+    oms_agent = {
+      log_analytics_workspace_id = "3a00c7dd-5a70-4a82-9903-d7dd1d8adce3"
+    }
     role_based_access_control_enabled = true
   }
   description = "Settings for AKS Cluster"
-}
-
-variable "resourcegroup-name" {
-  type        = string
-  default     = "resourcegroup-aks"
-  description = "Resource Group name"
 }
 
 variable "tags" {
