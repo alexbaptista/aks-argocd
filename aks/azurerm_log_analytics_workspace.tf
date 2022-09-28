@@ -4,4 +4,5 @@ resource "azurerm_log_analytics_workspace" "default" {
   resource_group_name = azurerm_resource_group.default.name
   sku                 = var.log_analytics_settings.sku
   retention_in_days   = var.log_analytics_settings.retention_in_days
+  tags                = var.tags
 }
