@@ -8,36 +8,24 @@ resource "azurerm_kubernetes_cluster" "default" {
   azure_policy_enabled              = var.aks_settings.azure_policy_enabled
   tags                              = var.tags
 
-  dynamic "default_node_pool" {
-    for_each = var.aks_default_node
-    content {
-      name            = default_node_pool.value["name"]
-      node_count      = default_node_pool.value["node_count"]
-      os_disk_size_gb = default_node_pool.value["os_disk_size_gb"]
-      vm_size         = default_node_pool.value["vm_size"]
-    }
+  default_node_pool {
+    name            = var.aks_default_node.name
+    node_count      = var.aks_default_node.node_count
+    os_disk_size_gb = var.aks_default_node.os_disk_size_gb
+    vm_size         = var.aks_default_node.vm_size
   }
 
-  dynamic "network_profile" {
-    for_each = var.aks_settings.network_profile
-    content {
-      network_policy = network_profile.value["network_policy"]
-      network_plugin = network_profile.value["network_plugin"]
-    }
+  network_profile {
+    network_policy = var.aks_settings.network_profile.network_policy
+    network_plugin = var.aks_settings.network_profile.network_plugin
   }
 
-  dynamic "identity" {
-    for_each = var.aks_settings.identity
-    content {
-      type = identity.value["type"]
-    }
+  identity {
+    type = var.aks_settings.identity.type
   }
 
-  dynamic "oms_agent" {
-    for_each = var.aks_settings.oms_agent
-    content {
-      log_analytics_workspace_id = oms_agent.value["log_analytics_workspace_id"]
-    }
+  oms_agent {
+    log_analytics_workspace_id = var.aks_settings.oms_agent.log_analytics_workspace_id
   }
 
 }
