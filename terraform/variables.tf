@@ -98,7 +98,7 @@ variable "argocd_settings" {
 
 variable "keyvault_name_prefix" {
   type        = string
-  default     = "keyvault-aks-"
+  default     = "KeyvaultAks"
   description = "Keyvault name"
 }
 
