@@ -18,6 +18,7 @@ resource "azurerm_key_vault" "default" {
   network_acls {
     bypass         = var.keyvault_settings.network_acls.bypass
     default_action = var.keyvault_settings.network_acls.default_action
+    ip_rules       = var.keyvault_settings.network_acls.ip_rules
   }
 
   tags = var.tags

@@ -113,6 +113,7 @@ variable "keyvault_settings" {
     network_acls = object({
       bypass         = string
       default_action = string
+      ip_rules       = list(string)
     })
     sku_name                   = string
     soft_delete_retention_days = number
@@ -136,6 +137,7 @@ variable "keyvault_settings" {
     network_acls = {
       bypass         = "AzureServices"
       default_action = "Deny"
+      ip_rules       = ["177.33.139.44/32", "168.61.176.250/32"]
     }
     sku_name                   = "standard"
     soft_delete_retention_days = 7
