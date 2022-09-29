@@ -4,4 +4,5 @@ resource "azurerm_key_vault_secret" "argocd" {
   key_vault_id    = azurerm_key_vault.default.id
   expiration_date = var.keyvault_argocd_settings.expiration_date
   content_type    = var.keyvault_argocd_settings.content_type
+  tags            = var.tags
 }

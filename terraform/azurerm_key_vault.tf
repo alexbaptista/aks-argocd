@@ -1,5 +1,5 @@
 resource "azurerm_key_vault" "default" {
-  name                        = var.keyvault_name
+  name                        = "${var.keyvault_name_prefix}-${random_string.random.result}"
   location                    = azurerm_resource_group.default.location
   resource_group_name         = azurerm_resource_group.default.name
   tenant_id                   = data.azurerm_client_config.current.tenant_id
@@ -20,4 +20,5 @@ resource "azurerm_key_vault" "default" {
     default_action = var.keyvault_settings.network_acls.default_action
   }
 
+  tags = var.tags
 }

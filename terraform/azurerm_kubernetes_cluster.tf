@@ -6,7 +6,6 @@ resource "azurerm_kubernetes_cluster" "default" {
   role_based_access_control_enabled = var.aks_settings.role_based_access_control_enabled
   api_server_authorized_ip_ranges   = var.aks_settings.api_server_authorized_ip_ranges
   azure_policy_enabled              = var.aks_settings.azure_policy_enabled
-  tags                              = var.tags
 
   default_node_pool {
     name            = var.aks_default_node.name
@@ -28,4 +27,5 @@ resource "azurerm_kubernetes_cluster" "default" {
     log_analytics_workspace_id = azurerm_log_analytics_workspace.default.id
   }
 
+  tags = var.tags
 }
