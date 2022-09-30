@@ -3,31 +3,30 @@ Proof of Concept for AKS ArgoCD
 
 > **_NOTE:_** Azure Pipelines (Azure DevOps) being used by template - https://github.com/alexbaptista/azuredevops-iac-template-pipeline
 
+
+> **_NOTE 2:_** Should be used **AFTER** pipeline execution from repository - https://github.com/alexbaptista/aks-cluster
+
+
 <br /><img src="README_content/terraform.png" width="100">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="README_content/aks.png" width="100">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="README_content/argocd.png" width="100"><br />
 
 ### **Folder structure**
 
 ```
-├── argocd
-│   └── v2.4.12
-│       └── manifests
-│           ├── install.yaml
-│           └── namespace.yaml
+.
 ├── azure-pipelines.yaml
 └── terraform
     ├── README.md
-    ├── azurerm_client_config.tf
-    ├── azurerm_key_vault.tf
     ├── azurerm_key_vault_secret.tf
-    ├── azurerm_kubernetes_cluster.tf
-    ├── azurerm_log_analytics_workspace.tf
-    ├── azurerm_resource_group.tf
     ├── kubectl_file_documents.tf
     ├── kubectl_manifest.tf
     ├── kubernetes_secret.tf
     ├── main.tf
+    ├── manifests
+    │   └── v2.4.12
+    │       ├── install.yaml
+    │       └── namespace.yaml
     ├── outputs.tf
-    ├── random_string.tf
+    ├── terraform_remote_state.tf
     └── variables.tf
 ```
 
