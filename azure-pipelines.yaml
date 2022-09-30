@@ -48,12 +48,12 @@ pr:
 stages:
   - template: pipeline/terraform.yaml@Iac-template
     parameters:
-      terraformPath: $(System.DefaultWorkingDirectory)/argocd/terraform
+      terraformPath: $(System.DefaultWorkingDirectory)/terraform
       terraformVersion: 1.3.0
       resourceContainer: terraform
       envConfig:
         DEV:
-          environmentDeploy: dev-argocd
+          environmentDeploy: dev-aks-argocd
           gitBranch: refs/heads/main
         PR:
           githubToken: $(githubToken)

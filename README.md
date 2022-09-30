@@ -1,5 +1,7 @@
 # aks-argocd
-Proof of Concept for AKS + ArgoCD
+Proof of Concept for AKS ArgoCD
+
+> **_NOTE:_** Azure Pipelines (Azure DevOps) being used by template - https://github.com/alexbaptista/azuredevops-iac-template-pipeline
 
 <br /><img src="README_content/terraform.png" width="100">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="README_content/aks.png" width="100">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="README_content/argocd.png" width="100"><br />
 
@@ -29,17 +31,13 @@ Proof of Concept for AKS + ArgoCD
     └── variables.tf
 ```
 
-* **[argocd/*](argocd)**: This folder contains ArgoCD manifests to be applied into Kubernetes cluster.
-
 * **[terraform/*](terraform)**: This folder contains Terraform files. The documentation can be acessed [here](terraform/README.md)
 
-## **What does it will create ?**
+* **[terraform/manifests*](argocd)**: This folder contains ArgoCD manifests to be applied into Kubernetes cluster.
 
-* **Azure Kubernetes Service**: Kubernetes managed by Azure Cloud;
+## **What does it will create ?**
   
 * **ArgoCD**: GitOps tool;
-  
-* **Azure KeyVault Service**: To store ArgoCD admin password.
 
 ## **Next Steps**
 
