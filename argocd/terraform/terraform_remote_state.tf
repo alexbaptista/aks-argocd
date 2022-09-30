@@ -1,9 +1,9 @@
 data "terraform_remote_state" "aks" {
-  backend = "azurerm" 
+  backend = "azurerm"
   config = {
-    storage_account_name  = "terraformalxbap"
-    container_name        = "aks-argocd"
-    workspaces = "dev"
-    key                   = "terraform.tfstate"
+    storage_account_name = "terraformalxbap"
+    container_name       = "aks"
+    workspaces           = "dev"
+    key                  = "terraform.tfstate"
   }
 }

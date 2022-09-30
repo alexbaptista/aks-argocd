@@ -5,7 +5,7 @@ pool:
   vmImage: hosted-azure
 
 variables:
-  - group: aks-argocd
+  - group: aks
 
 resources:
   repositories:
@@ -53,7 +53,7 @@ stages:
       resourceContainer: terraform
       envConfig:
         DEV:
-          environmentDeploy: dev
+          environmentDeploy: dev-aks
           gitBranch: refs/heads/main
         PR:
           githubToken: $(githubToken)
