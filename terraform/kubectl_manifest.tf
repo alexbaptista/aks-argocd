@@ -1,7 +1,4 @@
 resource "kubectl_manifest" "argocd_namespace" {
-  depends_on = [
-    azurerm_kubernetes_cluster.default,
-  ]
   count              = length(data.kubectl_file_documents.argocd_namespace.documents)
   yaml_body          = element(data.kubectl_file_documents.argocd_namespace.documents, count.index)
   override_namespace = var.argocd_settings["namespace"]
