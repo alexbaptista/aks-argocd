@@ -28,8 +28,8 @@ provider "azurerm" {
 
 provider "kubectl" {
   host                   = element(data.terraform_remote_state.aks.outputs.host, 0)
-  username               = element(data.terraform_remote_state.aks.outputs.username, 0)
-  password               = element(data.terraform_remote_state.aks.outputs.password, 0)
+  username               = element(data.terraform_remote_state.aks.outputs.cluster_username, 0)
+  password               = element(data.terraform_remote_state.aks.outputs.cluster_password, 0)
   client_certificate     = base64decode(element(data.terraform_remote_state.aks.outputs.client_certificate, 0))
   client_key             = base64decode(element(data.terraform_remote_state.aks.outputs.client_key, 0))
   cluster_ca_certificate = base64decode(element(data.terraform_remote_state.aks.outputs.cluster_ca_certificate, 0))
@@ -38,8 +38,8 @@ provider "kubectl" {
 
 provider "kubernetes" {
   host                   = element(data.terraform_remote_state.aks.outputs.host, 0)
-  username               = element(data.terraform_remote_state.aks.outputs.username, 0)
-  password               = element(data.terraform_remote_state.aks.outputs.password, 0)
+  username               = element(data.terraform_remote_state.aks.outputs.cluster_username, 0)
+  password               = element(data.terraform_remote_state.aks.outputs.cluster_password, 0)
   client_certificate     = base64decode(element(data.terraform_remote_state.aks.outputs.client_certificate, 0))
   client_key             = base64decode(element(data.terraform_remote_state.aks.outputs.client_key, 0))
   cluster_ca_certificate = base64decode(element(data.terraform_remote_state.aks.outputs.cluster_ca_certificate, 0))
