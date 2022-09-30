@@ -5,4 +5,7 @@ resource "azurerm_key_vault_secret" "argocd" {
   expiration_date = var.keyvault_argocd_settings.expiration_date
   content_type    = var.keyvault_argocd_settings.content_type
   tags            = var.tags
+  depends_on = [
+    kubectl_manifest.argocd
+  ]
 }
