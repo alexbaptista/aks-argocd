@@ -145,23 +145,23 @@ variable "keyvault_settings" {
   description = "Keyvault settings"
 }
 
-variable "keyvault_argocd_name" {
-  type        = string
-  default     = "argocd-admin"
-  description = "Keyvault name for ArgoCD"
-}
+# variable "keyvault_argocd_name" {
+#   type        = string
+#   default     = "argocd-admin"
+#   description = "Keyvault name for ArgoCD"
+# }
 
-variable "keyvault_argocd_settings" {
-  type = object({
-    content_type    = string
-    expiration_date = string
-  })
-  default = {
-    content_type    = "password"
-    expiration_date = "2024-12-31T23:59:59Z"
-  }
-  description = "Keyvault for ArgoCD"
-}
+# variable "keyvault_argocd_settings" {
+#   type = object({
+#     content_type    = string
+#     expiration_date = string
+#   })
+#   default = {
+#     content_type    = "password"
+#     expiration_date = "2024-12-31T23:59:59Z"
+#   }
+#   description = "Keyvault for ArgoCD"
+# }
 
 variable "tags" {
   type = map(string)

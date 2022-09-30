@@ -8,10 +8,10 @@ terraform {
       source  = "gavinbunney/kubectl"
       version = "1.14.0"
     }
-    kubernetes = {
-      source  = "hashicorp/kubernetes"
-      version = "2.13.1"
-    }
+    # kubernetes = {
+    #   source  = "hashicorp/kubernetes"
+    #   version = "2.13.1"
+    # }
     random = {
       source  = "hashicorp/random"
       version = "3.4.3"
