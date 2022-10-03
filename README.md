@@ -30,7 +30,7 @@ Proof of Concept for AKS ArgoCD
     └── variables.tf
 ```
 
-* **[terraform/*](terraform)**: This folder contains Terraform files. The documentation can be acessed [here](terraform/README.md)
+* **[terraform/*](terraform)**: This folder contains Terraform files. The documentation can be accessed [here](terraform/README.md)
 
 * **[terraform/manifests*](argocd)**: This folder contains ArgoCD manifests to be applied into Kubernetes cluster.
 
@@ -44,7 +44,7 @@ Proof of Concept for AKS ArgoCD
 
 * **Get ArgoCD user admin by KeyVault**: https://portal.azure.com/#view/HubsExtension/BrowseResource/resourceType/Microsoft.KeyVault%2Fvaults
 
-* **Run portfoward to access ArgoCD**: https://argo-cd.readthedocs.io/en/stable/getting_started/#port-forwarding
+* **Run port forward to access ArgoCD**: https://argo-cd.readthedocs.io/en/stable/getting_started/#port-forwarding
 
 ## **Notes**
 
